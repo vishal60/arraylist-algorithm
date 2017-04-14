@@ -6,7 +6,7 @@ public class Test {
 	public static void main(String[] args) {
 		int temp = 0;
 		
-		MyArrayList<String> mal = new MyArrayList<String>();
+		MyArrayList<Object> mal = new MyArrayList<Object>();
 		mal.add("vishal"+temp++);
 		mal.add("vishal"+temp++);
 		mal.add("vishal"+temp++);
@@ -20,9 +20,16 @@ public class Test {
 		mal.add("vishaasdasl");
 		mal.remove(2);
 		mal.add("baba");
-		mal.remove(9);
+		mal.remove(7);
+		mal.add('c');
+		mal.add(1);
+		mal.add(true);
 		
-		System.out.println(mal);
+		//System.out.println(mal);
+		
+		MyIterator<Object> iterator = mal.iterator();
+		while(iterator.hasNext())
+			System.out.println(iterator.next());		
 	}
 
 }

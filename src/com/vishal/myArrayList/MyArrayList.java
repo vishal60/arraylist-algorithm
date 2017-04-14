@@ -19,7 +19,8 @@ public class MyArrayList<T> {
 			array[arrayMaxIndex++] = obj;
 		}else{
 			//copy the old array contents to new array of size size*3/2+1
-			newArray = (T[])new Object[arraySize*3/2+1];
+			arraySize *= 3/2+1;
+			newArray = (T[])new Object[arraySize];
 			for (int i = 0; i < array.length; i++) 
 				newArray[i] = array[i];
 			array = newArray;
@@ -35,7 +36,6 @@ public class MyArrayList<T> {
 			temp = array[atIndex];
 			atIndex--;
 			array[atIndex+1] = array[atIndex];
-			//atIndex--;
 			array[atIndex] = temp;
 			atIndex++;
 		}
@@ -50,6 +50,10 @@ public class MyArrayList<T> {
 		}		
 		return "[ " + s + "]";
 		
+	}
+	
+	public MyIterator<T> iterator(){
+		return new MyIterator<T>(this.array);
 	}
 
 }
